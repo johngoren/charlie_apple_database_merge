@@ -33,7 +33,7 @@ The following WordPress front-end issues will remain after import:
 * Category Images need to have their GUIDs search-and-replaced (in wp_options) to point to the correct server.
 * Other wp_options should be search-and-replaced to indicate new site URL.
 
-The modified DB is also larger than it was before the script. To reduce the risk of overwhelming the shared Production hosting on WPEngine, you may wish to consider slimming it down through WP Optimise, etc. before import.
+The modified DB is also larger than it was before being processed. To reduce the risk of overwhelming the shared Production hosting on WPEngine, you may wish to consider slimming it down through WP Optimise, etc. before import.
 
 # Other notes
 
