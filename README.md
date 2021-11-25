@@ -19,8 +19,9 @@ To output a log file instead of printing to the screen, you can set Logging to T
 1. Once the script can successfully connect to the two databases, and has command line execution rights, you should be able to run it as a shell command: **./migrate.py**
 2. Depending on your machine, the process may run for upwards of 15 minutes. (Sorry, I didn't get around to optimising/consolidating the many queries into something more efficient with JOINs etc.)
 3. When it's done, your Live DB will have been modified. I have been using mysqldump to export the updated Live into an .SQL file.
-4. I then upload (via scp) and import that .SQL file into the Test Migration environment, using WP CLI import {dumpname}.
+4. I then upload (via scp) and import that .SQL file into the Test Migration environment, using WP CLI import {dumpname}. This has been going smoothly on the Test Migrate site but hung last Friday when performed on Production.
 5. Post-import cleanup (below)
+6. Copying this environment over in WP Engine (while making appropriate URL changes to wp_options)
 
 # Post-import cleanup
 
@@ -31,6 +32,8 @@ The following WordPress front-end widget will remain after import:
 * Main and footer menus (due to caution in not wanting to break taxonomies with products in them) need to be set up after export.
 * Category Images need to have their GUIDs search-and-replaced (in wp_options) to point to the correct server.
 * Other wp_options should be search-and-replaced to indicate new site URL.
+
+The modified DB is also larger than it was before the script. You may wish to consider slimming it down through WP Optimise, etc. before import.
 
 # Other notes
 
