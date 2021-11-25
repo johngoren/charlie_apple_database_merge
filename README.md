@@ -23,9 +23,9 @@ To output a log file instead of printing to the screen, you can set Logging to T
 
 # Post-import cleanup
 
-The following issues have been persisting after import:
+The following WordPress front-end widget will remain after import:
 
-* ACF can be imported using the export .json (available here in /json/)
+* You'll want to import ACF using the export .json (provided here in /json/)
 * Home's ACF widgets need to have their categories and posts set -- been doing this manually.
 * Main and footer menus (due to caution in not wanting to break taxonomies with products in them) need to be set up after export.
 * Category Images need to have their GUIDs search-and-replaced (in wp_options) to point to the correct server.
