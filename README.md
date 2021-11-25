@@ -9,7 +9,7 @@ You will need:
 * Python 3
 * A MySQL or MariaDB server with the two source databases imported.
 
-To configure the script to connect with the two databases, you will need to enter credentials for a DB user into the config file, Config.yaml. (The user will also need to be granted all access privileges in SQL, of course.) Otherwise you will get an ACCESS_DENIED error.
+To configure the script to connect with the two databases, you will need to enter credentials for a DB user into the config file, Config.yaml. (The user will also need to be granted all access privileges in SQL, of course.) Otherwise you will run into an ACCESS_DENIED error.
 
 To output a log file instead of printing to the screen, you can set Logging to True in the main file, which is Migrate.py.
 
