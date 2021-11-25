@@ -22,8 +22,8 @@ logging = False
 
 POST_TYPE_PRODUCT = "product"
 POST_TYPE_COUPON = "shop_coupon"
-POST_TYPE_ORDER = "shop_order"  # needs remapping.
-POST_TYPE_REFUND = "shop_order_refund"  # needs remapping.
+POST_TYPE_ORDER = "shop_order"  
+POST_TYPE_REFUND = "shop_order_refund"  
 
 
 def main():
@@ -77,7 +77,7 @@ def main():
 
     print(f'{bcolors.LIVE}Inserting fresh product posts.')
     insert_live_products(live, products_staging, existing_products_id_list)   # At the same original IDs.
-    # Here is where we create the new 6. Can we separate them somehow
+    # Here is where we create the new 6. 
 
     print("Inserting fresh product metadata.")
     insert_fresh_live_products_meta(live, products_staging_meta_remapped)
@@ -320,8 +320,6 @@ def is_among_desired_post_types(post):
 
 def do_final_report():
     print(f"In the end our remapping table grew to {len(conversion.conversion_dict)} entries")
-    # TODO: Report on what the DB now looks like
-    # TODO: Do checks that the correct products came over.
 
 def get_products_id_list():
     query = "select id from wp_posts where post_type='product'"

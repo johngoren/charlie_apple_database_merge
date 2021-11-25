@@ -1,6 +1,5 @@
 import dbs
 
-# I think this isn't working correctly yet
 def get_hero_attachment_metas():
     query = "select * from wp_postmeta where meta_key like 'hero%hero_image';"
     dbs.staging.execute(query)

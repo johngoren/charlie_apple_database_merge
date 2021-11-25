@@ -14,7 +14,7 @@ def replace_term_relationships(c, relationships):
         replace_term_relationship(c, relationship)
 
 def replace_term_relationship(c, relationship):
-    object_id=relationship["object_id"] # TODO is this properly remapped?
+    object_id=relationship["object_id"] 
     term_taxonomy_id=relationship["term_taxonomy_id"]
     term_order=relationship["term_order"]
 
@@ -48,7 +48,6 @@ def delete_metas_for_post(c, post_id):
     c.execute(query)
     liveDb.commit()
 
-# TODO: Return the new autoincrement and put in conversion table and be sure to check conversion table later!!
 def insert_single_wordpress_post(c, post):
     try:           
         old_id = post["ID"]
