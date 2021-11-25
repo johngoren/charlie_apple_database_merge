@@ -44,4 +44,4 @@ The modified DB is also larger than it was before being processed. I'm not sure 
 * Former Post IDs of posts that have been remapped can be found under the wp_postmeta key "old_id".
 * You'll see I just added "_price" to the list of protected keys in Config, as an example of how the script takes precautions to avoid overwriting live data.
 
-Sorry this has been such a nightmare!
+Hope this works OK for you and let me know if you run into any problems. If you prefer I can probably book some time to just run the script on my desktop next week and hand over the output SQL.
