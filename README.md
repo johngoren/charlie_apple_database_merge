@@ -11,7 +11,7 @@ You will need:
 
 To configure the script to connect with the two databases, you will need to enter credentials for a DB user possessing all access privileges into the config file, Config.yaml. Otherwise you will run into an ACCESS_DENIED error.
 
-To make sure the script finds your Python correctly if it's somewhere other than /usr/bin/env, you may need to change the Bash address at the top of Migrate.py.
+To make sure the script finds your Python correctly if it's somewhere other than /usr/bin/env, you may need to change the filepath at the top of Migrate.py.
 
 To output a log file instead of printing to the screen, you can set Logging to True in the main file, which is Migrate.py.
 
