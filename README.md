@@ -16,14 +16,9 @@ To output a log file instead of printing to the screen, you can set Logging to T
 
 # Use
 
-1. Once the script can connect, you should be able to run it, assuming it has execution rights, by executing it as a shell command:
-
-./migrate.py
-
+1. Once the script can connect, you should be able to run it, assuming it has execution rights, by executing it as a shell command: **./migrate.py**
 2. Depending on your machine, it may run for upwards of 15 minutes as I didn't get around to optimising/consolidating the many queries.
-
 3. When it's done, your Live DB will have been modified. I have been using mysqldump to export it into an .SQL file.
-
 4. I then import that .SQL file into the Test Migration environment, using WP CLI.
 
 
