@@ -1,7 +1,7 @@
 # Visible Import SQL Migration Script
 
 # Overview
-This package is a Python command line script that reconciles two locally-run databases, Live and Production.
+This package is a Python command line script that reconciles two locally-run databases, Live and Production. It comes as a whole directory with Migrate.py and its helper files, but let me know if you would like it compiled into a single executable.
 
 # Setup
 
