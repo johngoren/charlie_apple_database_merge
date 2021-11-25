@@ -42,4 +42,6 @@ The modified DB is also larger than it was before being processed. I'm not sure 
 
 * You can configure things like which keys and CPTs are affected, under Config.yaml.
 * Former Post IDs of posts that have been remapped can be found under the wp_postmeta key "old_id".
+* You'll see I just added "_price" to the list of protected keys in Config, as an example of how the script takes precautions to avoid overwriting live data.
 
+Sorry this has been such a nightmare!
