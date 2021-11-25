@@ -1,0 +1,19 @@
+---
+STAGING:
+  host: "localhost"
+  user: "YOUR_MYSQL_USERNAME"
+  password: "YOUR_MYSQL_USER_PASSWORD"
+  database: "staging"
+  omit_keys: ["_stock", "total_sales", "_manage_stock", "_price"]
+  omit_types: ["shop_order", "shop_order_refund", "shop_coupon", "product"]
+  omit_tables:  ["wp_users", "wp_usermeta", "wp_options"]
+  copy_tables: ["wp_berocket_termmeta", "wp_em_bookings", "wp_em_events", "wp_em_locations", "wp_em_meta", "wp_em_tickets", "wp_em_tickets_bookings", "wp_mailchimp_carts", "wp_mailchimp_jobs", "wp_options", "wp_queue", "wp_smush_dir_images", "wp_yoast_indexable", "wp_yoast_indexable_hiearchy", "wp_yoast_migrations", "wp_yoast_primary_term", "wp_yoast_seo_links", "wp_yoast_seo_meta"]
+
+LIVE:
+  host: "localhost"
+  user: "YOUR_MYSQL_USERNAME"
+  password: "YOUR_MYSQL_USER_PASSWORD"
+  database: "wp_visibleimage"
+  preserve_keys: ["_stock", "total_sales", "_manage_stock", "_price"]
+  url: "https://visibleimage.com"
+  migration_url: "https://vitestmigrate.wpengine.com"
