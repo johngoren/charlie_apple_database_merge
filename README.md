@@ -21,14 +21,15 @@ To output a log file instead of printing to the screen, you can set Logging to T
 3. When it's done, your Live DB will have been modified. I have been using mysqldump to export it into an .SQL file.
 4. I then import that .SQL file into the Test Migration environment, using WP CLI.
 
-# After the DB import on a website
+# Post-import cleanup
 
-The following issues will persist after import:
+The following issues have been persisting after import:
 
 * ACF can be imported using the export .json (available here in /json/)
 * Home's ACF widgets need to have their categories and posts set -- been doing this manually.
 * Main and footer menus (due to caution in not wanting to break taxonomies with products in them) need to be set up after export.
 * Category Images need to have their GUIDs search-and-replaced (in wp_options) to point to the correct server.
+* Other wp_options should be search-and-replaced to indicate new site URL.
 
 # Other notes
 
