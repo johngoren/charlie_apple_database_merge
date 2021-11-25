@@ -30,8 +30,8 @@ To output a log file instead of printing to the screen, you can set Logging to T
 
 The following WordPress front-end issues will remain after import:
 
-* You'll want to import ACF field groups using the export .json (provided here in /json/)
-* Home's ACF widgets need to have their categories and posts set -- been doing this manually.
+* You'll want to import ACF field groups using the export .JSON from Staging (provided here in /json/)
+* Home's ACF widgets need to have their categories, posts and two Hero images set -- been doing this manually.
 * Main and footer menus need to be set up after export (due to the script's conservative approach to taxonomies to avoid breaking product categories)
 * Category Images need to have their GUIDs search-and-replaced (in wp_options) to point to the correct server.
 * Other wp_options should be search-and-replaced to indicate new site URL.
