@@ -58,11 +58,6 @@ def main():
     conversion.init(build_lookup_table())
     print(conversion.conversion_dict)
 
-    # # if len(conversion.conversion_dict) < 1:
-    # #     print(f"{bcolors.FAIL}Database has been altered. You need to restore it to its original state.")
-    # #     sys.exit()
-
-
     products_staging_meta_remapped = remap_metas_to_new_IDs(products_staging_meta_with_stocking_and_pricing_filtered_out)
 
     print(f'{bcolors.LIVE}{len(products_staging)} fresh products to insert into Live.')         
@@ -76,8 +71,7 @@ def main():
     drop_obsolete_products_posts(live)
 
     print(f'{bcolors.LIVE}Inserting fresh product posts.')
-    insert_live_products(live, products_staging, existing_products_id_list)   # At the same original IDs.
-    # Here is where we create the new 6. 
+    insert_live_products(live, products_staging, existing_products_id_list)   # At the same original IDs so that we don't disrupt ongoing WooCommerce foreign key relationships.
 
     print("Inserting fresh product metadata.")
     insert_fresh_live_products_meta(live, products_staging_meta_remapped)
@@ -88,7 +82,6 @@ def main():
     strays.init(build_strays_dict(live))
 
  
-    # 4. Sweep up everything else (except what we'e done already.)
     terms_staging = get_terms(staging)
     term_taxonomy_staging = get_term_taxonomy(staging)
     term_relationships_staging = get_term_relationships(staging)
@@ -100,11 +93,8 @@ def main():
 
     # 4. Post it while preserving protected tables, post types and metas.
 
-    # TODO insert taxonomy stuff 
-
     print(f"{bcolors.LIVE}Restoring {len(all_other_staging_posts)} other staging posts (remapped with new id)")
     insert_all_other_staging_posts(live, all_other_staging_posts)
-    # These aren't going to be remappable until after the insertion point. We have scooted
     all_other_staging_meta_remapped = remap_metas_to_new_IDs(all_other_staging_meta)
     print(f"{bcolors.LIVE}Restoring {len(all_other_staging_meta_remapped)} other staging post meta (remapped with new post_id)")
     insert_all_other_staging_meta(live, all_other_staging_meta_remapped)
@@ -119,7 +109,7 @@ def main():
 
 
     
-    # For the infamous 6
+    # The six new products need to be treated differently because they didn't exist before Staging
     stray_meta_count = 0
     strays_metas = get_post_meta_for_posts(staging, new_product_ids)
     for meta in strays_metas:
@@ -129,14 +119,14 @@ def main():
         print(f"Inserting stray meta for post {old_id}")
     print(f"{stray_meta_count} stray metas inserted")
 
-    # This should hopefully update those metas we just posted so that they find their new IDs.
+    # Update those metas we just posted so that they find their new IDs.
     strays.reunite(live, liveDb)
 
 
     all_posts = get_all_posts(live)
     print("Reuniting children with parents that may have moved")
     children.reunite(all_posts)
-    options.setup_options(live) # Are any of these options useful to us above?
+    options.setup_options(live) 
     thumbnails.update()
 
     do_final_report()
@@ -327,8 +317,6 @@ def get_products_id_list():
     result = live.fetchall()
     return [p['id'] for p in result]
 
-
-# Test for unwanted keys
 
 def test_we_dont_have_unwanted_keys(metas):
     ok = True
