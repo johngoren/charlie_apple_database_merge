@@ -8,6 +8,7 @@ This package is a Python command line script that reconciles two locally-run dat
 You will need:
 * Python 3
 * A MySQL or MariaDB server with the two source databases imported.
+* Any missing Python dependencies like mysql-connector-python, installed via pip, etc.
 
 To configure the script to connect with the two databases, you will need to enter credentials for a DB user possessing all access privileges into the config file, Config.yaml. Otherwise you will run into an ACCESS_DENIED error.
 
