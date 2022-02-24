@@ -1,7 +1,7 @@
 # Charlie Apple SQL Reconciliation Script
 
 # Overview
-On the eve of Black Friday, the (fictional) small-town computer shop Charlie Apple desperately needs our help. Two of its databases, Live and Production, have inconsistent data that needs to be reconciled. For example, all the new products are in Live but the latest stocking data is in Production. The migration becomes more complicated when we realize we have to remap tens of thousands of SQL foreign keys.
+On the eve of Black Friday, the (fictional) small-town computer shop Charlie Apple desperately needs our help. Two of its databases, Live and Production, have inconsistent data that must be reconciled before it's too late. For example, all the new products are in Live, but the latest stocking data is in Production. At first this seems like a simple job. But then we realize we need to remap tens of thousands of SQL foreign keys to avoid collisions.
 
 To solve this problem, this Python command line script will safely migrate data between two locally-run databases, Live and Production, while testing to make sure that our crucial data has retained its data.
 
