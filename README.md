@@ -7,6 +7,8 @@ To solve this problem, this Python command line script will safely migrate data 
 
 The main executable is Migrate.py. By changing the config file, we can decide which keys are preserved.
 
+This was written blazingly fast on trains and hotel rooms in Scotland and could stand a refactor...
+
 # Setup
 
 You will need:
