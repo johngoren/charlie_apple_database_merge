@@ -1,7 +1,7 @@
 # Charlie Apple SQL Merge Script.
 
 # Overview
-This package is a Python command line script that reconciles discrepancies in two locally-run databases, Live and Production. Some of the E-commerce data we need is in one database, and some of it is in the other. The result is a rapidly-written script that reassigns tens of thousands of SQL keys.
+This package is a Python command line script that reconciles discrepancies in two locally-run databases, Live and Production. Some of the E-commerce data we need is in one database, and some of it is in the other. The result is a script -- written in a mad rush -- that reassigns tens of thousands of SQL keys.
 
 The main executable is Migrate.py.
 
