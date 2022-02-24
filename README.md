@@ -1,7 +1,9 @@
-# Visible Import SQL Migration Script
+# Charlie Apple SQL Merge Script.
 
 # Overview
-This package is a Python command line script that reconciles two locally-run databases, Live and Production. It comes as a whole directory containing the main executable, Migrate.py, and its helper files, but let me know if you would prefer it be compiled into a single one-file executable.
+This package is a Python command line script that reconciles discrepancies in two locally-run databases, Live and Production. Some of the E-commerce data we need is in one database, and some of it is in the other. The result is a rapidly-written script that reassigns tens of thousands of SQL keys.
+
+The main executable is Migrate.py.
 
 # Setup
 
@@ -23,9 +25,8 @@ To output a log file instead of printing to the screen, you can set Logging to T
 1. Once the script can successfully connect to the two databases, and has command line execution rights, you should be able to run it as a shell command: **./migrate.py**
 2. Depending on your machine, the process may run for upwards of 15 minutes. (Sorry, I didn't get around to optimising/consolidating the many queries into something more efficient with JOINs etc.)
 3. When it's done, your Live DB will have been modified. I have been using mysqldump to export the updated Live into an .SQL file.
-4. I then upload (via scp) and import that .SQL file into the Test Migration environment, using WP CLI import {dumpname}. This has been going smoothly on the Test Migrate site but hung last Friday when performed on Production.
+4. I then upload (via scp) and import that .SQL file into the Test Migration environment, using WP CLI import {dumpname}. 
 5. Post-import cleanup (below)
-6. Copying this environment over in WP Engine (while making appropriate URL changes to wp_options)
 
 # Post-import cleanup
 
@@ -44,5 +45,3 @@ The modified DB is also larger than it was before being processed. I'm not sure 
 * You can configure things like which keys and CPTs are affected, under Config.yaml.
 * Former Post IDs of posts that have been remapped can be found under the wp_postmeta key "old_id".
 * You'll see I just added "_price" to the list of protected keys in Config, as an example of how the script takes precautions to avoid overwriting live data.
-
-Hope this works OK for you and let me know if you run into any problems. If you prefer I can probably book some time to just run the script on my desktop next week and hand over the output SQL.
