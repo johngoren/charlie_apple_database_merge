@@ -5,7 +5,7 @@ On the eve of Black Friday, the (fictional) small-town computer shop Charlie App
 
 To solve this problem, this Python command line script will safely migrate data between two locally-run databases, Live and Production, while testing to make sure that our crucial data has retained its data.
 
-The main executable is Migrate.py.
+The main executable is Migrate.py. By changing the config file, we can decide which keys are preserved or protected.
 
 # Setup
 
