@@ -32,9 +32,9 @@ def write_options_table(options):
 
 
 def correct_option_value_for_url(option_value):
-    staging_url = "http://visibleimage.staging.wpengine.com"
+    staging_url = "http://charlieapple.staging.wpengine.com"
     if staging_url in option_value:
-        corrected_url = option_value.replace(staging_url, "https://vitestmigrate.wpengine.com")
+        corrected_url = option_value.replace(staging_url, "https://catestmigrate.wpengine.com")
         print(f"Corrected URL in options: {corrected_url}")
         return corrected_url
     else:

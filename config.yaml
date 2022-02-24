@@ -12,7 +12,7 @@ LIVE:
   host: "localhost"
   user: "YOUR_MYSQL_USERNAME"
   password: "YOUR_MYSQL_USER_PASSWORD"
-  database: "wp_visibleimage"
+  database: "wp_charlieapple"
   preserve_keys: ["_stock", "total_sales", "_manage_stock", "_price"]
-  url: "https://visibleimage.com"
-  migration_url: "https://vitestmigrate.wpengine.com"
+  url: "https://charlieapple.gorenfeld.co.uk"
+  migration_url: "https://catestmigrate.wpengine.com"

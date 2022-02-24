@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 import mysql.connector
 import pdb
 from dbs import staging, live, liveDb, dont_bring_these_product_keys_over_from_staging, dont_bring_these_post_types_over_from_staging, siteurl
@@ -18,6 +19,9 @@ import menus
 import widgets
 import sys
 
+# Note that during the writing of this script, I realized the latter style of imports was more pythonic.
+
+
 logging = False
 
 POST_TYPE_PRODUCT = "product"
@@ -31,7 +35,7 @@ def main():
         log = open("migrate.log", "a")
         sys.stdout = log
 
-    print(f"{bcolors.HEADER}*** Visible Image import script ***\n")
+    print(f"{bcolors.HEADER}*** Charlie Apple import script ***\n")
 
     global posts_staging, posts_live, meta_staging, meta_live, products_staging, products_live, meta_products_staging_filtered
     existing_products_id_list = get_products_id_list()
