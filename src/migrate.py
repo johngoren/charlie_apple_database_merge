@@ -3,12 +3,12 @@
 
 import mysql.connector
 import pdb
-from dbs import staging, live, liveDb, dont_bring_these_product_keys_over_from_staging, dont_bring_these_post_types_over_from_staging, siteurl
-from queries import get_all_posts, get_post_meta_for_posts, get_terms, get_term_taxonomy, get_term_relationships, get_posts_of_type, get_meta_for_type, get_term_meta
-from products import drop_obsolete_products_posts, insert_live_products, insert_fresh_live_products_meta, preserve_product_meta, restore_preserved_product_meta, build_strays_dict, new_product_ids
-from insert import insert_all_other_staging_posts, insert_all_other_staging_meta
-from wordpress import delete_obsolete_posts_and_pages, insert_single_wordpress_meta, replace_term_relationships
-from colors import bcolors
+import dbs
+import queries
+import products
+import insert
+import wordpress
+import colors
 import conversion
 import strays
 import options
@@ -19,7 +19,6 @@ import menus
 import widgets
 import sys
 
-# Note that during the writing of this script, I realized the latter style of imports was more pythonic.
 
 
 logging = False
